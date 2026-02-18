@@ -51,7 +51,7 @@ export default function Welcome({
                             </span>
                         </Link>
                         <div className="flex items-center gap-3">
-                            {auth.user ? (
+                            {auth.user && (
                                 <Button asChild>
                                     <Link
                                         href={
@@ -65,20 +65,6 @@ export default function Welcome({
                                             : 'Dashboard'}
                                     </Link>
                                 </Button>
-                            ) : (
-                                <>
-                                    <Button variant="ghost" asChild>
-                                        <Link href={login()}>Log in</Link>
-                                    </Button>
-                                    {canRegister && (
-                                        <Button asChild>
-                                            <Link href={register()}>
-                                                Register
-                                                <ArrowRight />
-                                            </Link>
-                                        </Button>
-                                    )}
-                                </>
                             )}
                         </div>
                     </nav>
