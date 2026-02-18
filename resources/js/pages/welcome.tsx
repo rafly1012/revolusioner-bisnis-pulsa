@@ -117,7 +117,7 @@ export default function Welcome({
                                 </p>
 
                                 <img
-                                    src="/public/img/logo.jpeg"
+                                    src="/img/logo.jpeg"
                                     alt="logo"
                                     className="hidden w-full rounded-lg object-cover lg:block"
                                 />
@@ -145,7 +145,7 @@ export default function Welcome({
                         {/* Right Content - Feature Cards */}
                         <div className="grid gap-4">
                             <img
-                                src="/public/img/bg.jpeg"
+                                src="/img/bg.jpeg"
                                 alt="logo"
                                 className="w-full rounded-lg object-cover"
                             />
@@ -204,7 +204,7 @@ export default function Welcome({
                                 >
                                     {product.image && (
                                         <img
-                                            src={`/public/${product.image}`}
+                                            src={`/${product.image}`}
                                             alt={product.name}
                                             className="mb-3 aspect-square w-full rounded-lg object-cover"
                                         />

@@ -138,7 +138,7 @@ export default function Show() {
 
                             <div className="space-y-2">
                                 <img
-                                    src="/public/img/bca.jpeg"
+                                    src="/img/bca.jpeg"
                                     alt="QRIS BCA"
                                     className="rounded-xl border"
                                 />

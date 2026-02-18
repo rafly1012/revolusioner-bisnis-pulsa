@@ -150,7 +150,7 @@ export default function Edit() {
                                             />
                                             <div>
                                                 <img
-                                                    src={`/public/${product.image}`}
+                                                    src={`/${product.image}`}
                                                     alt={product.name}
                                                     className="aspect-square h-32 w-32 rounded-sm object-cover"
                                                 />

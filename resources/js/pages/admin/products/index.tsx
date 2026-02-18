@@ -50,7 +50,7 @@ export default function Index() {
                             <Item key={product.id} size="xs" variant="outline">
                                 <ItemHeader>
                                     <img
-                                        src={`/public/${product.image}`}
+                                        src={`/${product.image}`}
                                         alt={product.image}
                                         width={128}
                                         height={128}

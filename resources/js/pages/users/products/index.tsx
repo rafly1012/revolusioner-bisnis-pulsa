@@ -55,7 +55,7 @@ export default function Index() {
                             <Item key={product.id} size="xs" variant="outline">
                                 <ItemHeader>
                                     <img
-                                        src={`/public/${product.image}`}
+                                        src={`/${product.image}`}
                                         alt={product.image}
                                         width={128}
                                         height={128}
@@ -92,15 +92,15 @@ export default function Index() {
                                                 className="group relative block cursor-pointer"
                                             >
                                                 <video
-                                                    src="/public/img/buy.mp4"
+                                                    src="/img/buy.mp4"
                                                     className="w-full"
                                                     autoPlay
                                                     muted
                                                     loop
-                                                    poster="/public/img/buy.jpeg"
+                                                    poster="/img/buy.jpeg"
                                                 >
                                                     <source
-                                                        src="/public/img/buy.mp4"
+                                                        src="/img/buy.mp4"
                                                         type="video/mp4"
                                                     />
                                                     Video tidak didukung oleh
