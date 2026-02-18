@@ -71,7 +71,12 @@ class WithdrawalsController extends Controller
             }
 
             // Hitung admin fee 10%
-            $adminFee = ceil($withdrawal->amount * 0.10);
+            if ($withdrawal->amount < 100000) {
+                $adminFee = 10000; // flat 10rb
+            } else {
+                $adminFee = ceil($withdrawal->amount * 0.10); // 10%
+            }
+
             $amountReceived = $withdrawal->amount - $adminFee;
 
             // Simpan admin fee
