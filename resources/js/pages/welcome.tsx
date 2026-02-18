@@ -204,7 +204,7 @@ export default function Welcome({
                                 >
                                     {product.image && (
                                         <img
-                                            src={`/${product.image}`}
+                                            src={`/public/${product.image}`}
                                             alt={product.name}
                                             className="mb-3 aspect-square w-full rounded-lg object-cover"
                                         />
