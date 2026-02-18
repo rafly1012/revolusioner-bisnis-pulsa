@@ -32,7 +32,10 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Index() {
-    const { products } = usePage<{ products: Product[] }>().props;
+    const { products, hasBoughtAnything } = usePage<{
+        products: Product[];
+        hasBoughtAnything: boolean;
+    }>().props;
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
@@ -70,50 +73,52 @@ export default function Index() {
                                     {formatCurrency(product.price)}
                                 </ItemContent>
                                 <ItemActions>
-                                    <AlertDialog>
-                                        <AlertDialogTrigger asChild>
-                                            <Button size="sm">Beli</Button>
-                                        </AlertDialogTrigger>
-                                        <AlertDialogContent>
-                                            <AlertDialogHeader>
-                                                <AlertDialogTitle className="text-center text-2xl">
-                                                    Klik gambar untuk
-                                                    melanjutkan pembelian dan
-                                                    signal
-                                                </AlertDialogTitle>
-                                            </AlertDialogHeader>
-                                            <Link
-                                                href={
-                                                    ProductsController.buy(
-                                                        product.id,
-                                                    ).url
-                                                }
-                                                method="post"
-                                                className="group relative block cursor-pointer"
-                                            >
-                                                <video
-                                                    src="/img/buy.mp4"
-                                                    className="w-full"
-                                                    autoPlay
-                                                    muted
-                                                    loop
-                                                    poster="/img/buy.jpeg"
+                                    {!hasBoughtAnything && (
+                                        <AlertDialog>
+                                            <AlertDialogTrigger asChild>
+                                                <Button size="sm">Beli</Button>
+                                            </AlertDialogTrigger>
+                                            <AlertDialogContent>
+                                                <AlertDialogHeader>
+                                                    <AlertDialogTitle className="text-center text-2xl">
+                                                        Klik gambar untuk
+                                                        melanjutkan pembelian
+                                                        dan signal
+                                                    </AlertDialogTitle>
+                                                </AlertDialogHeader>
+                                                <Link
+                                                    href={
+                                                        ProductsController.buy(
+                                                            product.id,
+                                                        ).url
+                                                    }
+                                                    method="post"
+                                                    className="group relative block cursor-pointer"
                                                 >
-                                                    <source
+                                                    <video
                                                         src="/img/buy.mp4"
-                                                        type="video/mp4"
-                                                    />
-                                                    Video tidak didukung oleh
-                                                    browser Anda.
-                                                </video>
+                                                        className="w-full"
+                                                        autoPlay
+                                                        muted
+                                                        loop
+                                                        poster="/img/buy.jpeg"
+                                                    >
+                                                        <source
+                                                            src="/img/buy.mp4"
+                                                            type="video/mp4"
+                                                        />
+                                                        Video tidak didukung
+                                                        oleh browser Anda.
+                                                    </video>
 
-                                                {/* Overlay text */}
-                                                <span className="absolute inset-0 flex items-center justify-center bg-background/70 text-4xl font-bold text-primary opacity-0 transition group-hover:opacity-100">
-                                                    Beli {product.name}
-                                                </span>
-                                            </Link>
-                                        </AlertDialogContent>
-                                    </AlertDialog>
+                                                    {/* Overlay text */}
+                                                    <span className="absolute inset-0 flex items-center justify-center bg-background/70 text-4xl font-bold text-primary opacity-0 transition group-hover:opacity-100">
+                                                        Beli {product.name}
+                                                    </span>
+                                                </Link>
+                                            </AlertDialogContent>
+                                        </AlertDialog>
+                                    )}
                                 </ItemActions>
                             </Item>
                         )}

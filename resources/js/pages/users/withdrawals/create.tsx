@@ -22,6 +22,7 @@ import UsersLayout from '@/layouts/users/layout';
 import { formatCurrency } from '@/lib/utils';
 import { store } from '@/routes/user/withdrawals';
 import type { BreadcrumbItem, Wallet } from '@/types';
+import { Separator } from '@/components/ui/separator';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -41,8 +42,6 @@ export default function Create() {
     const MIN = 10000;
     const ADMIN_FEE_PERCENT = 10;
     const [amount, setAmount] = useState<number>(MIN);
-
-    const netAmount = Math.max(0, amount - (amount * ADMIN_FEE_PERCENT) / 100);
 
     const isSaldoKurang = wallet.balance < MIN;
 
@@ -162,15 +161,18 @@ export default function Create() {
                                                         )}
                                                     </p>
 
-                                                    <p className="text-lg">
-                                                        Biaya Admin 10%
+                                                    <Separator />
+
+                                                    <p className="text-sm">
+                                                        Penarikan di bawah Rp
+                                                        100.000 dipotong Biaya
+                                                        Admin Rp 10.000
                                                     </p>
 
-                                                    <p className="text-lg">
-                                                        Setelah potongan 10%:{' '}
-                                                        {formatCurrency(
-                                                            netAmount,
-                                                        )}
+                                                    <p className="text-sm">
+                                                        Penarikan di atas Rp
+                                                        100.000 dipotong Biaya
+                                                        Admin 10%
                                                     </p>
 
                                                     <InputError

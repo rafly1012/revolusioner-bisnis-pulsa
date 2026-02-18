@@ -21,7 +21,7 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
-        $defaultReferral = 'JEMYJERMIASHANING-RBP-MA8SBDAN';
+        $defaultReferral = 'RBP-MA8SBDAN';
 
         if (empty($input['referral_code'])) {
             $input['referral_code'] = $defaultReferral;
@@ -36,7 +36,7 @@ class CreateNewUser implements CreatesNewUsers
         $role = 'users';
 
         $referralCode = $role === 'users'
-            ? $this->generateUniqueReferralCode($input['name'])
+            ? $this->generateUniqueReferralCode()
             : null;
 
         $userData = [
@@ -69,13 +69,11 @@ class CreateNewUser implements CreatesNewUsers
         return $user;
     }
 
-    private function generateUniqueReferralCode(string $name): string
+    private function generateUniqueReferralCode(): string
     {
-        $namePart = strtoupper(str_replace(' ', '', $name));
-
         do {
             $randomPart = strtoupper(Str::random(8)); // 8 karakter acak
-            $code = "{$namePart}-RBP-{$randomPart}";
+            $code = "RBP-{$randomPart}";
         } while (User::where('referral_code', $code)->exists());
 
         return $code;

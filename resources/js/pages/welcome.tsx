@@ -158,7 +158,8 @@ export default function Welcome({
                                 </h3>
                                 <p className="text-muted-foreground">
                                     Dapatkan komisi dari jaringan Anda hingga 10
-                                    level ke bawah.
+                                    level ke bawah dan akumulasi dari seluruh
+                                    level.
                                 </p>
                             </div>
 
@@ -167,11 +168,11 @@ export default function Welcome({
                                     <Wallet className="size-6 text-primary" />
                                 </div>
                                 <h3 className="mb-2 text-xl font-semibold">
-                                    Bonus Reward Bulanan
+                                    Bonus dan Reward
                                 </h3>
                                 <p className="text-muted-foreground">
-                                    Pembagian dana admin setiap bulan
-                                    berdasarkan aktivitas transaksi.
+                                    Pembagian royalti berdasarkan aktivitas
+                                    transaksi.
                                 </p>
                             </div>
 

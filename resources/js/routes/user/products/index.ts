@@ -610,7 +610,7 @@ destroy.form = destroyForm
 
 /**
 * @see \App\Http\Controllers\Users\ProductsController::buy
-* @see app/Http/Controllers/Users/ProductsController.php:28
+* @see app/Http/Controllers/Users/ProductsController.php:33
 * @route '/user/products/{product}/buy'
 */
 export const buy = (args: { product: number | { id: number } } | [product: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -625,7 +625,7 @@ buy.definition = {
 
 /**
 * @see \App\Http\Controllers\Users\ProductsController::buy
-* @see app/Http/Controllers/Users/ProductsController.php:28
+* @see app/Http/Controllers/Users/ProductsController.php:33
 * @route '/user/products/{product}/buy'
 */
 buy.url = (args: { product: number | { id: number } } | [product: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -658,7 +658,7 @@ buy.url = (args: { product: number | { id: number } } | [product: number | { id:
 
 /**
 * @see \App\Http\Controllers\Users\ProductsController::buy
-* @see app/Http/Controllers/Users/ProductsController.php:28
+* @see app/Http/Controllers/Users/ProductsController.php:33
 * @route '/user/products/{product}/buy'
 */
 buy.post = (args: { product: number | { id: number } } | [product: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -668,7 +668,7 @@ buy.post = (args: { product: number | { id: number } } | [product: number | { id
 
 /**
 * @see \App\Http\Controllers\Users\ProductsController::buy
-* @see app/Http/Controllers/Users/ProductsController.php:28
+* @see app/Http/Controllers/Users/ProductsController.php:33
 * @route '/user/products/{product}/buy'
 */
 const buyForm = (args: { product: number | { id: number } } | [product: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -678,7 +678,7 @@ const buyForm = (args: { product: number | { id: number } } | [product: number |
 
 /**
 * @see \App\Http\Controllers\Users\ProductsController::buy
-* @see app/Http/Controllers/Users/ProductsController.php:28
+* @see app/Http/Controllers/Users/ProductsController.php:33
 * @route '/user/products/{product}/buy'
 */
 buyForm.post = (args: { product: number | { id: number } } | [product: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({

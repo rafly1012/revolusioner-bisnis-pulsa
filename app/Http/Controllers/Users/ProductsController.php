@@ -20,13 +20,33 @@ class ProductsController extends Controller
      */
     public function index(): Response
     {
+        $hasBoughtAnything = Transaction::where('user_id', Auth::id())
+            ->whereIn('status', ['pending', 'paid', 'success'])
+            ->exists();
+
         return Inertia::render('users/products/index', [
             'products' => Product::latest()->get(),
+            'hasBoughtAnything' => $hasBoughtAnything,
         ]);
     }
 
     public function buy(Product $product): RedirectResponse
     {
+        $userId = Auth::id();
+
+        $alreadyBought = DetailTransaction::where('product_id', $product->id)
+            ->whereHas('transaction', function ($q) use ($userId) {
+                $q->where('user_id', $userId)
+                    ->whereIn('status', ['pending', 'paid', 'success']);
+            })
+            ->exists();
+
+        if ($alreadyBought) {
+            return redirect()
+                ->back()
+                ->with('error', 'Produk ini sudah pernah Anda beli.');
+        }
+
         $transaction = Transaction::create([
             'user_id' => Auth::id(),
             'transaction_code' => $this->generateUniqueTransactionCode(),
@@ -50,7 +70,7 @@ class ProductsController extends Controller
     private function generateUniqueTransactionCode(): string
     {
         do {
-            $code = 'RBP-TRX-'.strtoupper(Str::random(8));
+            $code = 'RBP-TRX-' . strtoupper(Str::random(8));
         } while (Transaction::where('transaction_code', $code)->exists());
 
         return $code;

@@ -86,12 +86,7 @@ class WithdrawalsController extends Controller
             $log = WalletLog::create([
                 'wallet_id' => $wallet->id,
                 'amount' => $withdrawal->amount,
-                'description' => sprintf(
-                    'Penarikan Rp %s (Diterima: Rp %s, Admin fee: Rp %s)',
-                    number_format($withdrawal->amount, 0, ',', '.'),
-                    number_format($amountReceived, 0, ',', '.'),
-                    number_format($adminFee, 0, ',', '.')
-                ),
+                'description' => 'Penarikan sebesar ' . number_format($withdrawal->amount, 0, ',', '.') . '',
             ]);
 
             // Notifikasi user
