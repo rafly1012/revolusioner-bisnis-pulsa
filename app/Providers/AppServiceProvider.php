@@ -38,16 +38,7 @@ class AppServiceProvider extends ServiceProvider
             app()->isProduction(),
         );
 
-        Password::defaults(
-            fn(): ?Password => app()->isProduction()
-                ? Password::min(8)
-                ->mixedCase()
-                ->letters()
-                ->numbers()
-                ->symbols()
-                ->uncompromised()
-                : null
-        );
+        Password::defaults(Password::min(8));
 
         if (app()->isProduction()) {
             URL::forceScheme('https');
