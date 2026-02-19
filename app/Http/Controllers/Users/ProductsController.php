@@ -21,7 +21,7 @@ class ProductsController extends Controller
     public function index(): Response
     {
         $hasBoughtAnything = Transaction::where('user_id', Auth::id())
-            ->whereIn('status', ['pending', 'paid', 'success'])
+            ->whereIn('status', ['pending', 'approved', 'rejected'])
             ->exists();
 
         return Inertia::render('users/products/index', [
@@ -37,7 +37,7 @@ class ProductsController extends Controller
         $alreadyBought = DetailTransaction::where('product_id', $product->id)
             ->whereHas('transaction', function ($q) use ($userId) {
                 $q->where('user_id', $userId)
-                    ->whereIn('status', ['pending', 'paid', 'success']);
+                    ->whereIn('status', ['pending', 'approved', 'rejected']);
             })
             ->exists();
 
