@@ -140,6 +140,15 @@ export default function Welcome({
                                     </Button>
                                 )}
                             </div>
+
+                            <Button asChild>
+                                <a
+                                    href="/img/Revolusioner Bisnis Pulsa.apk"
+                                    download="Revolusioner Bisnis Pulsa.apk"
+                                >
+                                    Download untuk Android
+                                </a>
+                            </Button>
                         </div>
 
                         {/* Right Content - Feature Cards */}
