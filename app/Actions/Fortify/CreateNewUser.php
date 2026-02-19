@@ -21,11 +21,11 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
-        // $defaultReferral = 'RBP-MA8SBDAN';
+        $defaultReferral = 'RBP-HKDOIOSO';
 
-        // if (empty($input['referral_code'])) {
-        //     $input['referral_code'] = $defaultReferral;
-        // }
+        if (empty($input['referral_code'])) {
+            $input['referral_code'] = $defaultReferral;
+        }
 
         Validator::make($input, [
             ...$this->profileRules(),
