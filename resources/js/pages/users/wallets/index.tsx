@@ -124,8 +124,7 @@ export default function Index() {
                             >
                                 <ItemContent>
                                     <ItemTitle className="capitalize">
-                                        {item.description} -{' '}
-                                        {formatCurrency(item.total)}
+                                        {item.description}
                                     </ItemTitle>
                                     <ItemDescription>
                                         {formatDateTime(item.created_at)}
