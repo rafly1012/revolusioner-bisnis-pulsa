@@ -33,7 +33,7 @@ class CreateNewUser implements CreatesNewUsers
             'referral_code' => 'nullable|exists:users,referral_code',
         ])->validate();
 
-        $role = 'admin';
+        $role = 'users';
 
         $referralCode = $role === 'users'
             ? $this->generateUniqueReferralCode()
