@@ -244,11 +244,18 @@ export default function Home() {
                         onConfirm={(password) => {
                             if (!selectedUserId) return;
 
-                            router.patch(
+                            const user = users.find(
+                                (u) => u.id === selectedUserId,
+                            );
+
+                            if (!user) return;
+
+                            router.post(
                                 UsersController.isActive(selectedUserId).url,
                                 {
+                                    _method: 'patch',
                                     action_password: password,
-                                    is_activate: 0,
+                                    is_activate: user.is_active ? 0 : 1,
                                 },
                                 {
                                     onSuccess: () => {
