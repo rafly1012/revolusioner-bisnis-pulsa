@@ -115,11 +115,11 @@ export default function SyaratKetentuan() {
                     <li>
                         Setiap mitra wajib mengaktifkan keanggotaannya setiap
                         tahun dengan biaya administrasi sebesar Rp 50.000 ( Lima
-                        Ribu Rupiah)..
+                        Ribu Rupiah).
                     </li>
                     <li>
                         Setiap mitra wajib menjaga nama baik dan reputasi RBP (
-                        Revolusioner Bisnis Hotel).
+                        Revolusioner Bisnis Pulsa).
                     </li>
                     <li>
                         Setiap mitra wajib tunduk dan taat pada syarat,
