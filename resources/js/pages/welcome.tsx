@@ -77,7 +77,7 @@ export default function Welcome({
                         <div className="flex flex-col justify-center space-y-8">
                             <div className="space-y-4">
                                 {announcements && announcements.length > 0 && (
-                                    <Alert className="border-red-200 bg-red-50 text-red-900 dark:border-red-900 dark:bg-red-950 dark:text-red-50">
+                                    <Alert className="animate-pulse border-red-200 bg-red-50 text-red-900 dark:border-red-900 dark:bg-red-950 dark:text-red-50">
                                         <InfoIcon />
                                         <AlertTitle>
                                             {announcements[0].title}
