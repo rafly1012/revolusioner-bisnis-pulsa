@@ -126,6 +126,9 @@ export default function Index() {
                                     <ItemTitle className="capitalize">
                                         {item.description}
                                     </ItemTitle>
+                                    <ItemTitle className="capitalize">
+                                        {formatCurrency(item.total)}
+                                    </ItemTitle>
                                     <ItemDescription>
                                         {formatDateTime(item.created_at)}
                                     </ItemDescription>
