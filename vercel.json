@@ -18,7 +18,7 @@
     "outputDirectory": "public",
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "true",
+        "APP_DEBUG": "false",
         "APP_URL": "https://revolusioner-bisnis-pulsa.vercel.app",
         "APP_KEY": "base64:tr5A7Bye0c9F/8Nscv11RvRSXvwDxM74GoDSm7Mc/Mk=",
         "APP_CONFIG_CACHE": "/tmp/config.php",

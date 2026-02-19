@@ -22,8 +22,8 @@ class AnnouncementUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
+            'title' => 'nullable|string|max:255',
+            'content' => 'nullable|string',
             'action_password' => 'required|string',
         ];
     }
