@@ -195,6 +195,7 @@ export default function Edit() {
                         triggerHidden
                         onConfirm={(password) => {
                             const data = new FormData();
+                            data.append('_method', 'put');
                             data.append('name', formData.name);
                             data.append('description', formData.description);
                             data.append('price', String(formData.price));
@@ -202,7 +203,7 @@ export default function Edit() {
                                 data.append('image', formData.image);
                             data.append('action_password', password);
 
-                            router.put(
+                            router.post(
                                 ProductsController.update(product.id).url,
                                 data,
                                 {

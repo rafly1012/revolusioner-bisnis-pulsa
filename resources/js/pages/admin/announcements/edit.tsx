@@ -136,11 +136,12 @@ export default function Edit() {
                         triggerHidden
                         onConfirm={(password) => {
                             const data = new FormData();
+                            data.append('_method', 'put');
                             data.append('title', formData.title);
                             data.append('content', formData.content);
                             data.append('action_password', password);
 
-                            router.put(
+                            router.post(
                                 AnnouncementController.update(announcement.id)
                                     .url,
                                 data,
