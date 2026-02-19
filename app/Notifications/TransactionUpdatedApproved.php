@@ -55,7 +55,7 @@ class TransactionUpdatedApproved extends Notification implements ShouldQueue
             'transaction_code' => $this->transaction->transaction_code,
             'total' => $this->transaction->total,
             'status' => $this->transaction->status,
-            'message' => 'Transaksi disetujui',
+            'message' => 'Transaksi disetujui dan menerima pulsa Rp 100.000',
         ];
     }
 }
