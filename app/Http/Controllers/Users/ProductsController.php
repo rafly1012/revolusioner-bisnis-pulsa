@@ -34,11 +34,8 @@ class ProductsController extends Controller
     {
         $userId = Auth::id();
 
-        $alreadyBought = DetailTransaction::where('product_id', $product->id)
-            ->whereHas('transaction', function ($q) use ($userId) {
-                $q->where('user_id', $userId)
-                    ->whereIn('status', ['pending', 'approved', 'rejected']);
-            })
+        $alreadyBought = Transaction::where('user_id', $userId)
+            ->whereIn('status', ['pending', 'approved', 'rejected'])
             ->exists();
 
         if ($alreadyBought) {
