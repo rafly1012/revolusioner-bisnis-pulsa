@@ -79,10 +79,10 @@ export default function Welcome({
                                 {announcements && announcements.length > 0 && (
                                     <Alert className="animate-pulse border-red-200 bg-red-50 text-red-900 dark:border-red-900 dark:bg-red-950 dark:text-red-50">
                                         <InfoIcon />
-                                        <AlertTitle>
+                                        <AlertTitle className="text-lg">
                                             {announcements[0].title}
                                         </AlertTitle>
-                                        <AlertDescription>
+                                        <AlertDescription className="text-xl">
                                             {announcements[0].content}
                                         </AlertDescription>
                                     </Alert>
