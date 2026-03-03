@@ -31,6 +31,7 @@ import {
 import { Spinner } from '@/components/ui/spinner';
 import AdminLayout from '@/layouts/admin/layout';
 import AppLayout from '@/layouts/app-layout';
+import { formatDateTime } from '@/lib/utils';
 import type { BreadcrumbItem } from '@/types';
 import type { User } from '@/types';
 import { reward } from '@/routes/admin/users';
@@ -98,12 +99,12 @@ export default function Home() {
                                             Nonaktif
                                         </Badge>
                                     )}
-                                    <ItemTitle>{user.name}</ItemTitle>
+                                    <ItemTitle className="uppercase">{user.name}</ItemTitle>
                                     <ItemDescription>
                                         {user.email}
                                     </ItemDescription>
                                     <ItemTitle className="font-mono">
-                                        {user.referral_code}
+                                        {user.referral_code} | bergabung pada: {formatDateTime(user.created_at)}
                                     </ItemTitle>
                                 </ItemContent>
 
