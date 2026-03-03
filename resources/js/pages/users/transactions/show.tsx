@@ -53,8 +53,11 @@ export default function Show() {
             `Email: *${auth.user.email}*\n` +
             `Kode Transaksi: *${transaction.transaction_code}*\n\n` +
             `Produk:\n${productsText}\n\n` +
-            `Total Pembayaran: *${formatCurrency(transaction.total)}*\n\n` +
-            `Berikut bukti pembayarannya. Terima kasih.`,
+            `Total Pembayaran: *${formatCurrency(transaction.total)}*\n\n\n` +
+            `Nomor Handphone: *${auth.user.phone}*\n` +
+            `Nomor Token Listrik: *${auth.user.electricity}*\n\n\n` +
+            `Berikut bukti pembayarannya. *Mohon dikonfismasi!*\n` +
+            `Terima kasih.`,
     );
 
     const whatsappUrl = `https://api.whatsapp.com/send?phone=6281246074353&text=${message}`;
