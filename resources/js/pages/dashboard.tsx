@@ -74,7 +74,7 @@ export default function Dashboard() {
 
                         <Separator className="my-2" />
 
-                        <div className="grid gap-2 md:grid-cols-3">
+                        <div className="grid gap-2 md:grid-cols-4">
                             <OverviewCard
                                 title="Total Transaksi"
                                 value={overview.total_transactions.formatted}
@@ -82,6 +82,11 @@ export default function Dashboard() {
                             <OverviewCard
                                 title="Produk Terjual"
                                 value={overview.total_products_sold.formatted}
+                            />
+                            <OverviewCard
+                                title="Produk Terjual"
+                                value={overview.total_products_sold.formatted}
+                                items={overview.products_sold_list}
                             />
                             <OverviewCard
                                 title="Total Pengguna"
@@ -95,14 +100,33 @@ export default function Dashboard() {
     );
 }
 
-function OverviewCard({ title, value }: { title: string; value: string }) {
+function OverviewCard({
+    title,
+    value,
+    items,
+}: {
+    title: string;
+    value: string;
+    items?: { name: string; qty: number }[];
+}) {
     return (
         <Card>
             <CardHeader>
                 <CardTitle>{title}</CardTitle>
             </CardHeader>
             <CardContent>
-                <div className="mb-1 text-2xl font-bold">{value}</div>
+                <div className="mb-2 text-2xl font-bold">{value}</div>
+
+                {items && (
+                    <div className="text-sm text-muted-foreground space-y-1">
+                        {items.map((item, i) => (
+                            <div key={i} className="flex justify-between">
+                                <span>{item.name}</span>
+                                <span>{item.qty}</span>
+                            </div>
+                        ))}
+                    </div>
+                )}
             </CardContent>
         </Card>
     );
