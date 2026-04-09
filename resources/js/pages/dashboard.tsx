@@ -74,14 +74,10 @@ export default function Dashboard() {
 
                         <Separator className="my-2" />
 
-                        <div className="grid gap-2 md:grid-cols-4">
+                        <div className="grid gap-2 md:grid-cols-3">
                             <OverviewCard
                                 title="Total Transaksi"
                                 value={overview.total_transactions.formatted}
-                            />
-                            <OverviewCard
-                                title="Produk Terjual"
-                                value={overview.total_products_sold.formatted}
                             />
                             <OverviewCard
                                 title="Produk Terjual"
