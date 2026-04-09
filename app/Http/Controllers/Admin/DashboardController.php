@@ -16,6 +16,7 @@ class DashboardController extends Controller
             'total_revenue' => $this->getTotalRevenue(),
             'total_transactions' => $this->getTotalTransactions(),
             'total_products_sold' => $this->getTotalProductsSold(),
+            'products_sold_list' => $this->getProductsSoldList(),
             'total_customers' => $this->getTotalCustomers(),
             'total_admin_fee' => $this->getTotalAdminFee(),
             'total_withdrawals' => $this->getTotalWithdrawals(),
@@ -67,6 +68,26 @@ class DashboardController extends Controller
             'value' => $total,
             'formatted' => number_format($total, 0, ',', '.') . ' produk',
         ];
+    }
+
+    protected function getProductsSoldList(): array
+    {
+        $products = DetailTransaction::with('product')
+            ->whereHas('transaction', function ($q) {
+                $q->where('status', 'approved');
+            })
+            ->selectRaw('product_id, SUM(qty) as total_qty')
+            ->groupBy('product_id')
+            ->orderByDesc('total_qty')
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'name' => $item->product->name ?? 'Produk dihapus',
+                    'qty' => $item->total_qty,
+                ];
+            });
+    
+        return $products->toArray();
     }
 
     /**
